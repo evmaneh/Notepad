@@ -28,6 +28,18 @@
             element.className = "light-mode";
             content.innerText = "";
           }
+          window.onload = function() {
+  let text = localStorage.getItem('text');
+  if (text !== null) {
+    document.getElementsByClassName("editor")[0].innerHTML = text;
+  }
+};
+
+window.onbeforeunload = function() {
+  let textToSave = document.getElementsByClassName("editor")[0].innerHTML;
+  localStorage.setItem('text', textToSave);
+};
+
         </script>
       </body>
     </html>
